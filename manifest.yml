@@ -1,0 +1,10 @@
+---
+applications:
+- name: lift-downloadable-amit
+  framework: node
+  runtime: node08
+  memory: 512M
+  instances: 1
+  host: lift-downloadable-amit
+  path: .     
+  command: node app.js
