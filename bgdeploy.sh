@@ -5,8 +5,9 @@ appStatusCheck(){
   echo "Checking Health of ${1}"
   GUID=$(cf app ${1} --guid)
   SUMMARY=$(cf curl "v2/apps/${GUID}/summary")
-  NUM_INSTANCES=$(echo ${SUMMARY} | python -c 'import sys, json; print json.load(sys.stdin)["instances"]')
-  n=0
+   NUM_INSTANCES=$(echo ${SUMMARY} | python -c 'import sys, json; print json.load(sys.stdin)["instances"]')
+  echo $NUM_INSTANCES
+ n=0
   while [ ${RETURN} = "1" ] && [ ${n} -lt 10 ] ; do
     n=$(expr ${n} + 1)
     echo "Trying : ${n}/10 "
